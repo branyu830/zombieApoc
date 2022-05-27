@@ -1,0 +1,144 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  SSLoadingPlugin (SereneSeasons-1.12.2-1.2.18-universal.jar)
+  ForgelinPlugin (Forgelin-1.8.4.jar)
+  TransformLoader (DynamicSurroundings-1.12.2-3.6.2.1.jar)
+  ThiccEntities Plugin (thiccentities-1.4.jar)
+  FutureMC (future-mc-1.12.2-0.2.6.1.jar)
+  LoadingPlugin (Bloodmoon-MC1.12.2-1.5.3.jar)
+Contact their authors BEFORE contacting forge
+
+// Uh... Did I do that?
+
+Time: 5/24/22 6:29 PM
+Description: Exception in server tick loop
+
+net.minecraftforge.fml.common.LoaderExceptionModCrash: Caught exception from Mo' Bends (mobends)
+Caused by: java.lang.NoClassDefFoundError: net/minecraft/client/resources/IResourceManagerReloadListener
+	at goblinbob.mobends.core.addon.Addons.registerAddon(Addons.java:29)
+	at goblinbob.mobends.core.addon.AddonHelper.registerAddon(AddonHelper.java:13)
+	at goblinbob.mobends.standard.main.MoBends.init(MoBends.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraftforge.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:637)
+	at sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+	at net.minecraftforge.fml.common.LoadController.sendEventToModContainer(LoadController.java:219)
+	at net.minecraftforge.fml.common.LoadController.propogateStateMessage(LoadController.java:197)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.google.common.eventbus.Subscriber.invokeSubscriberMethod(Subscriber.java:91)
+	at com.google.common.eventbus.Subscriber$SynchronizedSubscriber.invokeSubscriberMethod(Subscriber.java:150)
+	at com.google.common.eventbus.Subscriber$1.run(Subscriber.java:76)
+	at com.google.common.util.concurrent.MoreExecutors$DirectExecutor.execute(MoreExecutors.java:399)
+	at com.google.common.eventbus.Subscriber.dispatchEvent(Subscriber.java:71)
+	at com.google.common.eventbus.Dispatcher$PerThreadQueuedDispatcher.dispatch(Dispatcher.java:116)
+	at com.google.common.eventbus.EventBus.post(EventBus.java:217)
+	at net.minecraftforge.fml.common.LoadController.distributeStateMessage(LoadController.java:136)
+	at net.minecraftforge.fml.common.Loader.initializeMods(Loader.java:749)
+	at net.minecraftforge.fml.server.FMLServerHandler.finishServerLoading(FMLServerHandler.java:108)
+	at net.minecraftforge.fml.common.FMLCommonHandler.onServerStarted(FMLCommonHandler.java:338)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71197_b(DedicatedServer.java:219)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:486)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ClassNotFoundException: net.minecraft.client.resources.IResourceManagerReloadListener
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	... 38 more
+Caused by: net.minecraftforge.fml.common.asm.ASMTransformerWrapper$TransformerException: Exception in class transformer net.minecraftforge.fml.common.asm.transformers.SideTransformer@75504cef from coremod FMLCorePlugin
+	at net.minecraftforge.fml.common.asm.ASMTransformerWrapper$TransformerWrapper.transform(ASMTransformerWrapper.java:260)
+	at net.minecraft.launchwrapper.LaunchClassLoader.runTransformers(LaunchClassLoader.java:279)
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:176)
+	... 40 more
+Caused by: java.lang.RuntimeException: Attempted to load class ceq for invalid side SERVER
+	at net.minecraftforge.fml.common.asm.transformers.SideTransformer.transform(SideTransformer.java:62)
+	at net.minecraftforge.fml.common.asm.ASMTransformerWrapper$TransformerWrapper.transform(ASMTransformerWrapper.java:256)
+	... 42 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_211, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1514921784 bytes (1444 MB) / 2018508800 bytes (1925 MB) up to 2018508800 bytes (1925 MB)
+	JVM Flags: 2 total; -Xmx2048M -Xms2048M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 37 mods loaded, 37 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State | ID                        | Version        | Source                                            | Signature                                |
+	|:----- |:------------------------- |:-------------- |:------------------------------------------------- |:---------------------------------------- |
+	| LCHI  | minecraft                 | 1.12.2         | minecraft.jar                                     | None                                     |
+	| LCHI  | mcp                       | 9.42           | minecraft.jar                                     | None                                     |
+	| LCHI  | FML                       | 8.0.99.99      | forge.jar                                         | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHI  | forge                     | 14.23.5.2860   | forge.jar                                         | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHI  | aiimprovements            | 0.0.1.3        | AIImprovements-1.12-0.0.1b3.jar                   | None                                     |
+	| LCHI  | carrots                   | 1.0.0b1        | carrotslib-mc1.12.2-1.0.0b1.jar                   | None                                     |
+	| LCHI  | armorunder                | 1.0.0          | armorunder-mc1.12.2-1.0.0.jar                     | None                                     |
+	| LCHI  | badmobs                   | 1.1.40         | BadMobs-1.12.2-1.1.40.jar                         | d476d1b22b218a10d845928d1665d45fce301b27 |
+	| LCHI  | betterbuilderswands       | 0.13.2         | BetterBuildersWands-1.12.2-0.13.2.271+5997513.jar | None                                     |
+	| LCHI  | bloodmoon                 | 1.5.3          | Bloodmoon-MC1.12.2-1.5.3.jar                      | d72e0dd57935b3e9476212aea0c0df352dd76291 |
+	| LCHI  | extendedrenderer          | v1.0           | coroutil-1.12.1-1.2.37.jar                        | None                                     |
+	| LCHI  | coroutil                  | 1.12.1-1.2.37  | coroutil-1.12.1-1.2.37.jar                        | None                                     |
+	| LCHI  | configmod                 | v1.0           | coroutil-1.12.1-1.2.37.jar                        | None                                     |
+	| LCHI  | sereneseasons             | 1.2.18         | SereneSeasons-1.12.2-1.2.18-universal.jar         | None                                     |
+	| LCHI  | orelib                    | 3.6.0.1        | OreLib-1.12.2-3.6.0.1.jar                         | 7a2128d395ad96ceb9d9030fbd41d035b435753a |
+	| LCHI  | dsurround                 | 3.6.2.1        | DynamicSurroundings-1.12.2-3.6.2.1.jar            | 7a2128d395ad96ceb9d9030fbd41d035b435753a |
+	| LCHI  | eternalwinter             | 1.0.3          | eternalwinter-1.0.3.jar                           | 7904c4e13947c8a616c5f39b26bdeba796500722 |
+	| LCHI  | forgelin                  | 1.8.4          | Forgelin-1.8.4.jar                                | None                                     |
+	| LCHI  | cfm                       | 6.3.1          | furniture-6.3.1-1.12.2.jar                        | None                                     |
+	| LCHI  | futuremc                  | 0.2.6          | future-mc-1.12.2-0.2.6.1.jar                      | None                                     |
+	| LCHI  | ichunutil                 | 7.2.2          | iChunUtil-1.12.2-7.2.2.jar                        | 4db5c2bd1b556f252a5b8b54b256d381b2a0a6b8 |
+	| LCHI  | jei                       | 4.16.1.302     | jei_1.12.2-4.16.1.302.jar                         | None                                     |
+	| LCHI  | mcwdoors                  | 1.3            | mcw-doors-1.0.3-mc1.12.2.jar                      | None                                     |
+	| LCHI  | mcwfences                 | 1.0.0          | mcw-fences-1.0.0-mc1.12.2.jar                     | None                                     |
+	| LCHI  | mcwfurnitures             | 1.0.1          | mcw-furniture-1.0.1-mc1.12.2beta.jar              | None                                     |
+	| LCHI  | mcwwindows                | 1.0            | mcw-windows-1.0.0-mc1.12.2.jar                    | None                                     |
+	| LCHE  | mobends                   | 1.1.0          | MoBends_1.12.2-1.1.0-28.09.21.jar                 | None                                     |
+	| LCH   | mobsunscreen              | 1.12.2-2.1.3   | mobsunscreen-1.12.2-2.1.3.jar                     | None                                     |
+	| LCH   | snowvariants              | 1.12.2-1.3.1   | snowvariants-1.12.2-1.3.1.jar                     | None                                     |
+	| LCH   | spartanshields            | 1.5.4          | SpartanShields-1.12.2-1.5.4.jar                   | None                                     |
+	| LCH   | spartanweaponry           | beta 1.3.8     | SpartanWeaponry-1.12.2-beta-1.3.8.jar             | None                                     |
+	| LCH   | spawnercontrol            | 1.6.3b         | SpawnerControl-1.6.3b.jar                         | None                                     |
+	| LCH   | thiccentities             | GRADLE:VERSION | thiccentities-1.4.jar                             | None                                     |
+	| LCH   | toughasnails              | 3.1.0.141      | ToughAsNails-1.12.2-3.1.0.141-universal.jar       | None                                     |
+	| LCH   | winterwonderland          | 1.2.2          | WinterWonderLand-1.2.2.jar                        | None                                     |
+	| LCH   | weapons_of_the_apocalypse | 1.0.0          | WOTA1.9.jar                                       | None                                     |
+	| LCH   | zombieawareness           | 1.12.1-1.11.16 | zombieawareness-1.12.1-1.11.16.jar                | None                                     |
+
+	Loaded coremods (and transformers): 
+SSLoadingPlugin (SereneSeasons-1.12.2-1.2.18-universal.jar)
+  sereneseasons.asm.transformer.EntityRendererTransformer
+  sereneseasons.asm.transformer.WorldTransformer
+ForgelinPlugin (Forgelin-1.8.4.jar)
+  
+TransformLoader (DynamicSurroundings-1.12.2-3.6.2.1.jar)
+  
+ThiccEntities Plugin (thiccentities-1.4.jar)
+  wiresegal.thicc.asm.ThiccAsmTransformer
+FutureMC (future-mc-1.12.2-0.2.6.1.jar)
+  thedarkcolour.futuremc.asm.CoreTransformer
+LoadingPlugin (Bloodmoon-MC1.12.2-1.5.3.jar)
+  lumien.bloodmoon.asm.ClassTransformer
+	Profiler Position: N/A (disabled)
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)
